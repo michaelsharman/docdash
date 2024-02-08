@@ -10,10 +10,10 @@ if (data.description) {
 <?js if (data.type && data.type.names) {?>
 <dl class="param-type">
     <dt>
-        Type
+        <span class="sr-only">Type</span>
     </dt>
     <dd>
-        <?js= this.partial('type.tmpl', data.type.names) ?>
+        (<?js= this.partial('type.tmpl', data.type.names).trim() ?>)
     </dd>
 </dl>
 <?js } ?>

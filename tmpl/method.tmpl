@@ -1,5 +1,6 @@
 <?js
 var data = obj;
+data.attribs = '';
 var self = this;
 ?>
 <?js if (data.kind !== 'module' && !data.hideconstructor) { ?>
@@ -27,7 +28,7 @@ var self = this;
 <?js= this.partial('details.tmpl', data) ?>
 
 <?js if (data.augments && data.alias && data.alias.indexOf('module:') === 0) { ?>
-    <h5 class="h5-extends">Extends:</h5>
+    <h5 class="h5-extends">Extends</h5>
     <?js= self.partial('augments.tmpl', data) ?>
 <?js } ?>
 
@@ -41,7 +42,7 @@ var self = this;
 <?js } ?>
 
 <?js if (data['this']) { ?>
-    <h5 class="h5-this">This:</h5>
+    <h5 class="h5-this">This</h5>
     <ul><li><?js= this.linkto(data['this'], data['this']) ?></li></ul>
 <?js } ?>
 
@@ -56,14 +57,14 @@ var self = this;
 <?js } ?>
 
 <?js if (data.kind !== 'module' && data.requires && data.requires.length) { ?>
-<h5 class="h5-requires">Requires:</h5>
+<h5 class="h5-requires">Requires</h5>
 <ul><?js data.requires.forEach(function(r) { ?>
     <li><?js= self.linkto(r) ?></li>
 <?js }); ?></ul>
 <?js } ?>
 
 <?js if (data.fires && fires.length) { ?>
-<h5 class="h5-fires">Fires:</h5>
+<h5 class="h5-fires">Fires</h5>
 <ul><?js fires.forEach(function(f) { ?>
     <li><?js= self.linkto(f) ?></li>
 <?js }); ?></ul>
@@ -83,20 +84,20 @@ var self = this;
 <?js }); ?></ul>
 <?js } ?>
 
-<?js if (data.modifies && modifies.length) {?>		
-<h5 class="h5-modifies">Modifies:</h5>		
-<?js if (modifies.length > 1) { ?><ul><?js		
-    modifies.forEach(function(m) { ?>		
-        <li><?js= self.partial('modifies.tmpl', m) ?></li>		
-    <?js });		
-?></ul><?js } else {		
-    modifies.forEach(function(m) { ?>		
-        <?js= self.partial('modifies.tmpl', m) ?>		
-    <?js });		
+<?js if (data.modifies && modifies.length) {?>
+<h5 class="h5-modifies">Modifies</h5>
+<?js if (modifies.length > 1) { ?><ul><?js
+    modifies.forEach(function(m) { ?>
+        <li><?js= self.partial('modifies.tmpl', m) ?></li>
+    <?js });
+?></ul><?js } else {
+    modifies.forEach(function(m) { ?>
+        <?js= self.partial('modifies.tmpl', m) ?>
+    <?js });
 } } ?>
 
 <?js if (data.exceptions && exceptions.length) { ?>
-<h5 class="h5-throws">Throws:</h5>
+<h5 class="h5-throws">Throws</h5>
 <?js if (exceptions.length > 1) { ?><ul><?js
     exceptions.forEach(function(r) { ?>
         <li><?js= self.partial('exceptions.tmpl', r) ?></li>
@@ -108,7 +109,7 @@ var self = this;
 } } ?>
 
 <?js if (data.returns && returns.length) { ?>
-<h5 class="h5-returns">Returns:</h5>
+<h5 class="h5-returns">Returns</h5>
 <?js if (returns.length > 1) { ?><ul><?js
     returns.forEach(function(r) { ?>
         <li><?js= self.partial('returns.tmpl', r) ?></li>
@@ -119,14 +120,14 @@ var self = this;
     <?js });
 } } ?>
 
-<?js if (data.yields && yields.length) { ?>		
-<h5 class="h5-yields">Yields:</h5>		
-<?js if (yields.length > 1) { ?><ul><?js		
-    yields.forEach(function(r) { ?>		
-        <li><?js= self.partial('returns.tmpl', r) ?></li>		
-    <?js });		
-?></ul><?js } else {		
-    yields.forEach(function(r) { ?>		
-        <?js= self.partial('returns.tmpl', r) ?>		
-    <?js });		
+<?js if (data.yields && yields.length) { ?>
+<h5 class="h5-yields">Yields:</h5>
+<?js if (yields.length > 1) { ?><ul><?js
+    yields.forEach(function(r) { ?>
+        <li><?js= self.partial('returns.tmpl', r) ?></li>
+    <?js });
+?></ul><?js } else {
+    yields.forEach(function(r) { ?>
+        <?js= self.partial('returns.tmpl', r) ?>
+    <?js });
 } } ?>
